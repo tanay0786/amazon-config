@@ -12,7 +12,23 @@ spring:
       ddl-auto: update
     show-sql: true
 
+  cloud:
+    stream:
+      bindings:
+        orderCreated-out-0:
+          destination: order-created
+
+      kafka:
+        binder:
+          brokers: localhost:9092
+
 eureka:
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
