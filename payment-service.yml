@@ -10,10 +10,18 @@ spring:
     show-sql: true
 
   cloud:
+    function:
+      definition: orderCreatedConsumer
+
     stream:
       kafka:
         binder:
           brokers: localhost:9092
+
+      bindings:
+        orderCreatedConsumer-in-0:
+          destination: order-created
+          group: payment-service-group
 
 server:
   port: 8087
