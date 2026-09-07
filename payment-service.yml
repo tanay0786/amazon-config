@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/amazon_microservices
+    url: jdbc:postgresql://localhost:5432/paymentdb
     username: postgres
     password: postgres
 
@@ -19,9 +19,16 @@ spring:
           brokers: localhost:9092
 
       bindings:
+
         orderCreatedConsumer-in-0:
           destination: order-created
           group: payment-service-group
+
+        paymentSuccess-out-0:
+          destination: payment-success
+
+        paymentFailed-out-0:
+          destination: payment-failed
 
 server:
   port: 8087
