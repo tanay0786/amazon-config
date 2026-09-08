@@ -14,7 +14,7 @@ spring:
 
   cloud:
     function:
-      definition: paymentFailedConsumer
+      definition: paymentFailedConsumer;paymentSuccessConsumer
 
     stream:
       bindings:
@@ -24,6 +24,10 @@ spring:
         paymentFailedConsumer-in-0:
           destination: payment-failed
           group: order-payment-failed-group
+
+        paymentSuccessConsumer-in-0:
+          destination: payment-success
+          group: order-payment-success-group
 
       kafka:
         binder:
