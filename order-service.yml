@@ -2,10 +2,6 @@ server:
   port: 8085
 
 spring:
-  application:
-    name: order-service
-
-spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/amazon_microservices
     username: postgres
