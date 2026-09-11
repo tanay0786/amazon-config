@@ -17,11 +17,11 @@ spring:
       definition: paymentFailedConsumer;paymentSuccessConsumer
 
     openfeign:
-     client:
-      config:
-        PRODUCT-SERVICE:
-          connectTimeout: 2000
-          readTimeout: 2000
+      client:
+        config:
+          PRODUCT-SERVICE:
+            connectTimeout: 2000
+            readTimeout: 2000
 
     stream:
       bindings:
@@ -61,6 +61,3 @@ resilience4j:
         failure-rate-threshold: 50
         wait-duration-in-open-state: 10s
         permitted-number-of-calls-in-half-open-state: 2
-
-
-    
