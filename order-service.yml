@@ -61,3 +61,9 @@ resilience4j:
         failure-rate-threshold: 50
         wait-duration-in-open-state: 10s
         permitted-number-of-calls-in-half-open-state: 2
+
+  bulkhead:
+    instances:
+      productServiceBulkhead:
+        max-concurrent-calls: 2
+        max-wait-duration: 0
