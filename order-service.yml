@@ -52,7 +52,24 @@ management:
         include: "*"
 
 resilience4j:
+
+  ratelimiter:
+    rateLimiterAspectOrder: 4
+    instances:
+      orderRateLimiter:
+        limit-for-period: 3
+        limit-refresh-period: 10s
+        timeout-duration: 0
+
+  bulkhead:
+    bulkheadAspectOrder: 3
+    instances:
+      productServiceBulkhead:
+        max-concurrent-calls: 2
+        max-wait-duration: 0
+
   circuitbreaker:
+    circuitBreakerAspectOrder: 2
     instances:
       productService:
         sliding-window-type: COUNT_BASED
@@ -62,27 +79,9 @@ resilience4j:
         wait-duration-in-open-state: 10s
         permitted-number-of-calls-in-half-open-state: 2
 
-  bulkhead:
-    instances:
-      productServiceBulkhead:
-        max-concurrent-calls: 2
-        max-wait-duration: 0
-
-  ratelimiter:
-    rateLimiterAspectOrder: 2
-    instances:
-      orderRateLimiter:
-        limit-for-period: 3
-        limit-refresh-period: 10s
-        timeout-duration: 0
-      
-
   retry:
-    retryAspectOrder: 3
+    retryAspectOrder: 1
     instances:
       productServiceRetry:
         max-attempts: 2
         wait-duration: 2s
-    
-
-
