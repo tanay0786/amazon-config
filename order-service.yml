@@ -69,15 +69,20 @@ resilience4j:
         max-wait-duration: 0
 
   ratelimiter:
+    rateLimiterAspectOrder: 3
     instances:
       orderRateLimiter:
         limit-for-period: 3
         limit-refresh-period: 10s
         timeout-duration: 0
+      
 
   retry:
+    retryAspectOrder: 2
     instances:
       productServiceRetry:
         max-attempts: 2
         wait-duration: 2s
+    
+
 
