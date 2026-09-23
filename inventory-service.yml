@@ -26,6 +26,7 @@ spring:
           destination: order-created
           group: inventory-service-group
           consumer:
+            concurrency: 3
             max-attempts: 3
 
         paymentFailedConsumer-in-0:
