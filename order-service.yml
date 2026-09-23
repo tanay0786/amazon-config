@@ -26,7 +26,6 @@ spring:
     stream:
       bindings:
         orderCreated-out-0:
-          concurrency: 3
           destination: order-created
 
         paymentFailedConsumer-in-0:
