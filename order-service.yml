@@ -62,7 +62,6 @@ resilience4j:
         timeout-duration: 0
 
   bulkhead:
-    bulkheadAspectOrder: 3
     instances:
       productServiceBulkhead:
         max-concurrent-calls: 2
