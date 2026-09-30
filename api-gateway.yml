@@ -15,6 +15,13 @@ spring:
           predicates:
             - Path=/products/**
 
+
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: https://integrator-4271402.okta.com/oauth2/default
+
 eureka:
   client:
     service-url:
